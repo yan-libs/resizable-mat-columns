@@ -1,0 +1,36 @@
+<div class="parent">
+  <h1>resizable-mat-table</h1>
+
+  <div class="table-container">
+    <table mat-table resizable [min-columns-width]="200" [dataSource]="dataSource">
+
+      <!-- Column 1 -->
+      <ng-container matColumnDef="cell_1">
+        <th resizable-mat-header *matHeaderCellDef> Column 1 </th>
+        <td mat-cell *matCellDef="let element"> {{element.cell_1}} </td>
+      </ng-container>
+
+      <!-- Column 2 -->
+      <ng-container matColumnDef="cell_2">
+        <th resizable-mat-header *matHeaderCellDef> Column 2 </th>
+        <td mat-cell *matCellDef="let element"> {{element.cell_2}} </td>
+      </ng-container>
+
+      <!-- Column 3 -->
+      <ng-container matColumnDef="cell_3">
+        <th resizable-mat-header *matHeaderCellDef> Column 3 </th>
+        <td mat-cell *matCellDef="let element"> {{element.cell_3}} </td>
+      </ng-container>
+
+      <!-- Column 4 -->
+      <ng-container matColumnDef="cell_4">
+        <th resizable-mat-header *matHeaderCellDef> Column 4 </th>
+        <td mat-cell *matCellDef="let element"> {{element.cell_4}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
+

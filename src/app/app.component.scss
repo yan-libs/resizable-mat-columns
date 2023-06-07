@@ -1,0 +1,22 @@
+.parent {
+  display: flex;
+
+  align-items: center;
+
+  flex-direction: column;
+
+  height: 100%;
+  width: 100%;
+
+  gap: 40px;
+
+  .table-container {
+    width: 80%;
+
+    overflow: auto;
+
+    .mat-mdc-header-cell {
+      background: #f8f8f8;
+    }
+  }
+}

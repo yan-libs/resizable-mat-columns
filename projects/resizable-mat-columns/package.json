@@ -1,0 +1,17 @@
+{
+  "name": "resizable-mat-columns",
+  "version": "1.0.0",
+  "peerDependencies": {
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "exports": {
+    ".": {
+      "sass": "./resizable-mat-columns.scss"
+    }
+  },
+  "sideEffects": false
+}
