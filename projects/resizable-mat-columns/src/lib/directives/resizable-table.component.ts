@@ -110,6 +110,8 @@ export class ResizableTableComponent implements OnInit, AfterViewInit, OnDestroy
     this.fixedWidthList = this.columnsRef.map(item => item.nativeElement.getBoundingClientRect().width)
 
     this.mouseMoveUnlisten = this.renderer.listen("document", "mousemove", (event: MouseEvent) => this.onMouseMove(event, column, index));
+
+    event.preventDefault();
   };
 
   onMouseMove = (event: MouseEvent, column: HTMLElement, index: number) => {

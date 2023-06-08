@@ -52,3 +52,6 @@ That wasn't so hard, isn't it?
 
 ## Demo
 You can try out a demo by [clicking here](https://yan-libs.github.io/resizable-mat-columns/).
+
+## Source
+https://github.com/yan-libs/resizable-mat-columns/tree/develop/projects/resizable-mat-columns
