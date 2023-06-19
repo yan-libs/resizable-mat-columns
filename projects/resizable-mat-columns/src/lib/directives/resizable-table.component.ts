@@ -5,11 +5,12 @@ import {
   ElementRef, Input,
   OnDestroy,
   OnInit,
-  QueryList, Renderer2
+  QueryList, Renderer2, ViewContainerRef
 } from "@angular/core";
 import { ResizableMatHeader } from "./resizable-mat-header";
 import { MatHeaderCell } from "@angular/material/table";
 import { debounceTime, Subject, takeUntil } from "rxjs";
+import { ResizeHolderComponent } from "../components/resize-holder.component";
 
 @Directive({
   selector: 'table[resizable]',
@@ -34,12 +35,6 @@ export class ResizableTableComponent implements OnInit, AfterViewInit, OnDestroy
    */
   @Input('min-columns-width')
   minColumnWidth: number = 50;
-
-  /**
-   * Resize handle class
-   */
-  @Input('resize-handle-class')
-  resizeHandleClass: string = "resize-holder";
 
   /**
    * Is button was pressed?
@@ -68,7 +63,8 @@ export class ResizableTableComponent implements OnInit, AfterViewInit, OnDestroy
 
   constructor(
     private renderer: Renderer2,
-    private table: ElementRef
+    private table: ElementRef,
+    private viewContainerRef: ViewContainerRef
   ) {
     this.tableContainer = this.renderer.parentNode(table.nativeElement);
   }
@@ -85,12 +81,11 @@ export class ResizableTableComponent implements OnInit, AfterViewInit, OnDestroy
       .pipe(debounceTime(200), takeUntil(this.destroyed))
       .subscribe(() => {
         this.columnsRef.forEach((item, index) => {
-          const resizer = this.renderer.createElement("div");
+          const resizer = this.viewContainerRef.createComponent(ResizeHolderComponent).location.nativeElement;
 
           this.renderer.setStyle(item.nativeElement, "position", "relative");
           this.renderer.setStyle(item.nativeElement, "width", `${item.nativeElement.getBoundingClientRect().width}px`);
 
-          this.renderer.addClass(resizer, this.resizeHandleClass);
           this.renderer.appendChild(item.nativeElement, resizer);
 
           this.renderer.listen(resizer, "mousedown", (event: MouseEvent) => this.onMouseDown(event, item.nativeElement, index));

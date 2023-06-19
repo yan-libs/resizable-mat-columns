@@ -1,9 +1,9 @@
 /*
- * resizable-mat-columns
+ * resize-holder
  * - minimal stylesheet
  */
 
-table .resize-holder {
+:host {
   cursor:  col-resize;
   width: 10px;
   height: 100%;

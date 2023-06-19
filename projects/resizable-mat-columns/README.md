@@ -4,13 +4,7 @@ Turns angular material table columns to resizable
 ## Installation
 #### NPM
 ```
-npm install angular-table-resize
-```
-
-## Quick Setup
-#### Link style sheets
-```html
-<link rel="stylesheet" href="resizable-mat-columns.scss">
+npm install resizable-mat-columns
 ```
 
 #### Import the module
@@ -48,7 +42,6 @@ That wasn't so hard, isn't it?
 | Name                | Type   | Description                                |
 |:--------------------|:-------|:-------------------------------------------|
 | min-columns-width   | number | Minimum width of columns. Default 50       |
-| resize-handle-class | string | Resize handle class. Default resize-holder |
 
 ## Demo
 You can try out a demo by [clicking here](https://yan-libs.github.io/resizable-mat-columns/).
